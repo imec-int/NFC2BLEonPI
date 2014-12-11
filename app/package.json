@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "debug": "~2.0.0",
-    "bleno": "~0.1.8"
+    "bleno": "~0.1.8",
+    "python-shell": "~0.0.3"
   }
 }
