@@ -18,7 +18,7 @@ function NfcCharacteristic() {
     properties: ['notify'],
     descriptors: [
       new bleno.Descriptor({
-        uuid: '2902',
+        uuid: '2221',
         value: 'Gets or sets NFC ids.'
       })
     ]

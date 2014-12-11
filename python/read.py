@@ -10,6 +10,7 @@ while True:
 		print "ID " + uid
 		#break
 	except nxppy.SelectError:
+		continue
 		#print "no valid UID"
 #print uid
 # Read 16 bytes starting from block 10 (each block is 4 bytes, so technically this reads blocks 10-13)

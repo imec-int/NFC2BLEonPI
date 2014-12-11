@@ -12,7 +12,7 @@ bleno.on('stateChange', function(state) {
     console.log('on -> stateChange: ' + state);
 
     if (state === 'poweredOn') {
-        bleno.startAdvertising('NFC', [primaryService.uuid]);
+        bleno.startAdvertising('woopiNFCreader', [primaryService.uuid]);
     } else {
         bleno.stopAdvertising();
     }
