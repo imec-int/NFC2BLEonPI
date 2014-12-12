@@ -10,8 +10,6 @@ var pyOptions = {
 
 var foundId = "1234";
 
-var idTimer = 0;
-
 var self;
 
 function NfcCharacteristic() {
