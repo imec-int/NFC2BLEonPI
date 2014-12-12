@@ -6,7 +6,7 @@ var bleno = require('bleno'),
 //          BLE CLIENT
 ////////////////////////////////////
 
-var primaryService = new NfcService();
+var primaryService = new NfcService(this);
 
 bleno.on('stateChange', function(state) {
     console.log('on -> stateChange: ' + state);

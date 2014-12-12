@@ -7,7 +7,8 @@ while True:
 	time.sleep(0.3)
 	try:
 		uid = mifare.select() # Select the first available tag and return the UID
-		print "ID " + uid
+		if(uid):
+			print "ID " + uid
 		#break
 	except nxppy.SelectError:
 		continue

@@ -1,6 +1,10 @@
 var util = require('util');
 var bleno = require('bleno');
 var py = require('python-shell');
+var Gpio = require('onoff').Gpio,
+    g = new Gpio(16, 'out'),
+    b = new Gpio(20, 'out'),
+    r = new Gpio(21, 'out');
 
 var pyOptions = {
   mode: 'text',
@@ -55,6 +59,36 @@ NfcCharacteristic.prototype.onReadRequest = function(offset, callback) {
 };
 
 ////////////////////////////////////
+//          LEDS
+////////////////////////////////////
+
+function lightUp(led){
+  // turn on LED
+  led.writeSync(1);
+  // turn off LED after 100ms
+  setTimeout(function(){
+    led.writeSync(0);
+  }, 300);
+  // turn on LED after 100ms
+  setTimeout(function(){ led.writeSync(1); }, 500);
+  // turn off LED after 100ms
+  setTimeout(function(){ led.writeSync(0); }, 1200);
+}
+
+function ledOnID(id){
+  if(id == "0483A7AAF52680"){
+    // Fire
+    lightUp(r);
+  }else if(id == "04B1A7AAF52680"){
+    // Cano
+    lightUp(b);
+  }else if(id == "04904BAAF52680"){
+    // Banana
+    lightUp(g);
+  }
+}
+
+////////////////////////////////////
 //          NFC shield
 ////////////////////////////////////
 
@@ -67,6 +101,7 @@ nfcPy.on('message', function (message) {
     var newId = message.substr(3);
     console.log("ID",newId);
     foundId = newId;
+    ledOnID(newId);
     if (self.updateValueCallback) {
       console.log("notify ",newId);
       var data = new Buffer(newId, "hex")
