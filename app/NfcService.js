@@ -5,7 +5,7 @@ var util = require('util'),
 
 function NfcService() {
   NfcService.super_.call(this, {
-      uuid: '2220',
+      uuid: '0x2220',
       characteristics: [
           new NfcCharacteristic()
       ]

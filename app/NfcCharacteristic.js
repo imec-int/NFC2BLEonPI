@@ -10,11 +10,13 @@ var pyOptions = {
 
 var foundId = "1234";
 
+var idTimer = 0;
+
 var self;
 
 function NfcCharacteristic() {
   bleno.Characteristic.call(this, {
-    uuid: '13333333333333333333333333330003',
+    uuid: '0x2221',
     properties: ['notify'],
     descriptors: [
       new bleno.Descriptor({
